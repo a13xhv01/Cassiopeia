@@ -2,7 +2,8 @@ import logging
 import logging.handlers
 import json
 from datetime import datetime
-
+import os
+from .defaults import DEFAULT_APP_NAME
 class JSONFormatter(logging.Formatter):
     def format(self, record):
         log_data = {
@@ -36,5 +37,6 @@ def setup_logging(log_file="app.log", log_level=logging.INFO):
     return logger
 
 # Usage
-logger = setup_logging()
-logger.info("Application started", extra={"user_id": "123"})
+app_name = os.getenv('APP_NAME', DEFAULT_APP_NAME)
+logger = setup_logging(app_name + '.log')
+logger.info(f"Application {app_name} started", extra={"user_id": "123"})
