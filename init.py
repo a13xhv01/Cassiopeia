@@ -3,7 +3,7 @@ import logging.handlers
 import json
 from datetime import datetime
 import os
-from .defaults import DEFAULT_APP_NAME
+from defaults import DEFAULT_APP_NAME
 class JSONFormatter(logging.Formatter):
     def format(self, record):
         log_data = {
