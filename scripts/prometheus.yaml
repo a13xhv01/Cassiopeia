@@ -1,0 +1,7 @@
+# prometheus.yml
+scrape_configs:
+  - job_name: 'trading_system'
+    scrape_interval: 10s
+    static_configs:
+      - targets: ['localhost:8000']
+
